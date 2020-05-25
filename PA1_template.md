@@ -1,8 +1,8 @@
 ---
 title: "Reproducible Research: Peer Assessment 1"
 output: 
-  html_document:
-    keep_md: true
+  html_document: 
+    keep_md: yes
 ---
 
 ### Loading and preprocessing the data
@@ -71,7 +71,7 @@ colnames(steps_taken_per_day) <- c("date", "steps")
 hist(steps_taken_per_day$steps, xlab = "Steps", ylab = "Frequency (# of days)", main = "Histogram of Steps Taken Per Day")
 ```
 
-![](PA1_template_files/figure-html/mean total number of steps-1.png)<!-- -->
+![](PA1_template_files/figure-html/mean_total_number_of_steps-1.png)<!-- -->
 
 ```r
 #Calculate mean and median
@@ -117,10 +117,10 @@ max_steps <- as.integer(round(max_steps$steps, digits = 0))
 with(interval_means, plot(intervals, steps, type = "l", xlab = "Interval", ylab = "Steps"))
 abline(v = max_interval, col = "red")
 points(max_interval, max_steps, col = "blue")
-legend("topright", lty = 1, col = "red", legend = "max = interval 835 with 206 steps")
+legend("topright", lty = 1, col = "red", legend = "Max = interval 835 with 206 steps")
 ```
 
-![](PA1_template_files/figure-html/interval means-1.png)<!-- -->
+![](PA1_template_files/figure-html/interval_means-1.png)<!-- -->
 
 The interval 835, on average, contained the maximum number of steps with an average of 206 steps.
 
@@ -167,10 +167,10 @@ colnames(steps_taken_per_day_with_imputed_values) <- c("date", "steps")
 # Plot
 hist(steps_taken_per_day_with_imputed_values$steps, 
     xlab = "Steps", ylab = "Frequency (# of days)", 
-    main = "Histogram of Steps Taken Per Day (with Imputed Values)")
+    main = "Histogram of Steps Taken per Day (with Imputed Values)")
 ```
 
-![](PA1_template_files/figure-html/imputed missing values-1.png)<!-- -->
+![](PA1_template_files/figure-html/imputed_missing_values-1.png)<!-- -->
 
 ```r
 # Calculate mean and median
@@ -212,4 +212,4 @@ g <- ggplot(wdintervals, aes(interval, steps))
 g + geom_line() + facet_grid(. ~ weekday)
 ```
 
-![](PA1_template_files/figure-html/weekdays and weekends-1.png)<!-- -->
+![](PA1_template_files/figure-html/weekdays_and_weekends-1.png)<!-- -->
